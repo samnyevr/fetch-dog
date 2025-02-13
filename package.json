@@ -2,7 +2,7 @@
   "name": "fetch-dogs",
   "private": false,
   "version": "0.0.0",
-  "homepage": "https://samnyevr.github.io/fetch-dog/",
+  "homepage": "https://samnyevr.github.io/fetch-dog",
   "type": "module",
   "scripts": {
     "dev": "vite",
