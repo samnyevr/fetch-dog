@@ -25,7 +25,7 @@ const MatchPage = ({ favorites }) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify(data),
+        body: JSON.stringify([data.match]),
       });
   
       const dogs = await dogsResponse.json();
