@@ -1,5 +1,8 @@
 const FilterBar = ({ setFilters }) => {
-  const handleBreedChange = (e) => setFilters((prev) => ({ ...prev, breed: e.target.value }));
+  const handleBreedChange = (e) => {
+    if(e.target.value === "") setFilters((prev) => ({ ...prev, breed: null })); 
+    else setFilters((prev) => ({ ...prev, breed: e.target.value }));
+  }
   const handleSortChange = (e) => setFilters((prev) => ({ ...prev, sort: e.target.value }));
 
   return (
