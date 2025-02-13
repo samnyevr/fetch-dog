@@ -26,8 +26,8 @@ const Header = () => {
             </button>
       </h1>
       <nav>
-        <Link to="/search" className={pathname === "/search" ? "active" : ""} >Search</Link>
-        <Link to="/match" className={pathname === "/match" ? "active" : ""} >Match</Link>
+        <Link to="/fetch-dog/search" className={pathname === "/fetch-dog/search" ? "active" : ""} >Search</Link>
+        <Link to="/fetch-dog/match" className={pathname === "/fetch-dog/match" ? "active" : ""} >Match</Link>
       </nav>
     </header>
   );
