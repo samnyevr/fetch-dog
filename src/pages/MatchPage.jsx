@@ -21,22 +21,19 @@ const MatchPage = ({ favorites }) => {
       });
       const data = await response.json();
 
-      let query = `size=50from=0&sort=breed:asc`;
-
-      const dogResponse = await fetch(
-        `https://frontend-take-home-service.fetch.com/dogs/search?${query}`,
-        { credentials: "include" }
-      );
-      const dogData = await dogResponse.json();
-
       const dogsResponse = await fetch("https://frontend-take-home-service.fetch.com/dogs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify(dogData.resultIds),
+        body: JSON.stringify(data),
       });
   
       const dogs = await dogsResponse.json();
+
+      if (!Array.isArray(dogs) || !dogs.length) {
+        setPhrase("Can't find any dogs that match, select your favorites from the search tab")
+        return
+      }
 
       setMatch(dogs.find(ele => ele.id === data.match))
     };
@@ -45,8 +42,8 @@ const MatchPage = ({ favorites }) => {
 
   return <div className="matchPage">
     <h2>{match ? `Your matched dog is: ${match.name}` : phrase}</h2>
-    <p><strong>Breed: </strong>{match ? match.breed : ''}</p>
-    <img src={match ? `${match.img}` : ``} alt="" />
+    {match && <p><strong>Breed: </strong>{match ? match.breed : ''}</p>}
+    {match && <img src={match.img} alt="" />}
     </div>;
 };
 
