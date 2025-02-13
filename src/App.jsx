@@ -35,9 +35,9 @@ const App = () => {
     <Router>
       {user && <Header />}
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/search" /> : <LoginPage setUser={setUser} />} />
-        <Route path="/search" element={user ? <SearchPage favorites={favorites} setFavorites={setFavorites} /> : <Navigate to="/" />} />
-        <Route path="/match" element={user ? <MatchPage favorites={favorites} /> : <Navigate to="/" />} />
+        <Route path="/fetch-dog" element={user ? <Navigate to="/fetch-dog/search" /> : <LoginPage setUser={setUser} />} />
+        <Route path="/fetch-dog/search" element={user ? <SearchPage favorites={favorites} setFavorites={setFavorites} /> : <Navigate to="/fetch-dog" />} />
+        <Route path="/fetch-dog/match" element={user ? <MatchPage favorites={favorites} /> : <Navigate to="/fetch-dog" />} />
       </Routes>
     </Router>
   );

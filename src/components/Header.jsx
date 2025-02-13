@@ -11,7 +11,7 @@ const Header = () => {
     try {
       await axios.post("https://frontend-take-home-service.fetch.com/auth/logout", {}, { withCredentials: true });
       sessionStorage.removeItem("loginSuccess")
-      navigate("/");
+      navigate("/fetch-dog");
       location.reload();
     } catch (error) {
       console.error("Logout failed", error);
